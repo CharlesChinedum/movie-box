@@ -5,9 +5,9 @@ import play from "@/assets/play.svg";
 import { RiMovie2Fill } from "react-icons/ri";
 
 async function getMovies() {
-
+  const key = process.env.API_KEY;
   const res = await fetch(
-    "https://api.themoviedb.org/3/trending/movie/day?api_key=6bd440cbb960966121102c5166823a30"
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${key}`
   );
   const movies = await res.json();
   return movies;
@@ -16,7 +16,7 @@ async function getMovies() {
 const Hero = async () => {
   const movies = await getMovies();
   const movie = movies.results[0];
-  //   console.log(movie);
+  // console.log(movies);
   return (
     <div>
       <div className="w-full relative">

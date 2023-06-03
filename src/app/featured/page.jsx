@@ -5,8 +5,9 @@ import BackButton from "../components/BackButton";
 
 
 const FeaturedPage = async () => {
+  const key = process.env.API_KEY;
   const url =
-    "https://api.themoviedb.org/3/movie/popular?api_key=6bd440cbb960966121102c5166823a30&language=en-US&page=1";
+    `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`;
   const movies = await useFetch(url);
   return (
     <div>

@@ -9,7 +9,9 @@ import "swiper/css/navigation";
 import Link from "next/link";
 
 const Series = async () => {
-    const url = "https://api.themoviedb.org/3/trending/tv/week?api_key=6bd440cbb960966121102c5166823a30&language=en-US"
+    const key = process.env.API_KEY;
+
+    const url = `https://api.themoviedb.org/3/trending/tv/week?api_key=${key}&language=en-US`;
     const movies = await useFetch(url);
     // console.log(movies);
     return (
